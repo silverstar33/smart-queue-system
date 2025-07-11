@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Cache-Control" content="no-store" />
+    <meta charset="UTF-8">
+    <title>Smart Queue Admin</title>
+    <style>
+        body { font-family: Arial; background: #f4f4f4; padding: 20px; }
+        h1 { color: #333; }
+        .tabs { margin-top: 20px; }
+        .tab-button {
+            background: #ddd; border: none; padding: 10px 20px; margin-right: 5px;
+            cursor: pointer; font-weight: bold; border-radius: 5px;
+        }
+        .tab-button.active { background: #4CAF50; color: white; }
+        .tab-content { display: none; margin-top: 20px; }
+        .tab-content.active { display: block; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
+        .status-completed { color: green; }
+        .status-pending { color: orange; }
+        .status-error, .status-failed { color: red; }
+    </style>
+</head>
+<body>
+<h1>📋 Smart Queue Task Dashboard</h1>
+
+<div class="tabs">
+    <button class="tab-button active" onclick="switchTab('live')">Live Tasks</button>
+    <button class="tab-button" onclick="switchTab('completed')">Completed Tasks</button>
+</div>
+
+<!-- Live Tasks Table -->
+<div id="live" class="tab-content active">
+    <table>
+        <thead>
+        <tr>
+            <th>Task ID</th>
+            <th>Task Name</th>
+            <th>Data</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody id="live-tasks-body">
+            <tr><td colspan="4">🔄 Loading live tasks...</td></tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Completed Tasks Section -->
+<div id="completed" class="tab-content">
+    <div id="completed-tasks">
+        <p>🔄 Loading completed tasks...</p>
+    </div>
+</div>
+
+<script>
+function switchTab(tabName) {
+    document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+    document.querySelector(`.tab-button[onclick*='${tabName}']`).classList.add('active');
+    document.getElementById(tabName).classList.add('active');
+}
+
+async function loadCompletedTasks() {
+    try {
+        const response = await fetch('/tasks/completed');
+        const result = await response.json();
+        const container = document.getElementById('completed-tasks');
+        container.innerHTML = '';
+
+        if (result.tasks.length === 0) {
+            container.innerHTML = '<p>No completed tasks yet.</p>';
+            return;
+        }
+
+        result.tasks.forEach(task => {
+            const div = document.createElement('div');
+            div.innerHTML = `
+                <h4>${task.task_name || 'Unnamed Task'}</h4>
+                <p><strong>Result:</strong> ${task.result}</p>
+                <small><strong>ID:</strong> ${task.task_id}</small>
+                <hr/>
+            `;
+            container.appendChild(div);
+        });
+    } catch (err) {
+        document.getElementById('completed-tasks').innerHTML = '<p style="color: red;">Error loading completed tasks.</p>';
+        console.error("Failed to load completed tasks", err);
+    }
+}
+
+async function loadLiveTasks() {
+    try {
+        const response = await fetch('/tasks');
+        const tasks = await response.json();
+        const tbody = document.getElementById('live-tasks-body');
+
+        tbody.innerHTML = '';
+        if (tasks.length === 0) {
+            tbody.innerHTML = '<tr><td colspan="4">No active tasks</td></tr>';
+            return;
+        }
+
+        tasks.forEach(task => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${task.task_id}</td>
+                <td>${task.task_name || 'Unnamed Task'}</td>
+                <td><pre>${JSON.stringify(task.data || {}, null, 2)}</pre></td>
+                <td class="status-${task.status}">${task.status}</td>
+            `;
+            tbody.appendChild(row);
+        });
+    } catch (err) {
+        console.error("Failed to load live tasks", err);
+    }
+}
+
+loadCompletedTasks();
+loadLiveTasks();
+setInterval(() => {
+    loadCompletedTasks();
+    loadLiveTasks();
+}, 10000);
+</script>
+</body>
+</html>
