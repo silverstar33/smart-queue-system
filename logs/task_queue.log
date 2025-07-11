@@ -1,0 +1,82 @@
+2025-07-11 15:36:30,358 [INFO] Worker started and listening for tasks...
+2025-07-11 15:38:56,472 [INFO] Submitted task e106c9a6-7fc1-4c2b-8455-05b84a00e898 - ROOOF_CLASS
+2025-07-11 15:38:56,473 [INFO] \U0001f4e5 Pulled task ROOOF_CLASS (ID: e106c9a6-7fc1-4c2b-8455-05b84a00e898) from queue
+2025-07-11 15:38:56,475 [INFO] \U0001f680 Processing task ROOOF_CLASS (ID: e106c9a6-7fc1-4c2b-8455-05b84a00e898)
+2025-07-11 15:39:01,476 [INFO] \u2705 Done: ROOOF_CLASS (ID: e106c9a6-7fc1-4c2b-8455-05b84a00e898)
+2025-07-11 16:00:09,224 [INFO] Submitted task e77b7a92-7724-44a7-be9c-e6c768abdc45 - ego_testing
+2025-07-11 16:00:09,225 [INFO] \U0001f4e5 Pulled task ego_testing (ID: e77b7a92-7724-44a7-be9c-e6c768abdc45) from queue
+2025-07-11 16:00:09,226 [INFO] \U0001f680 Processing task ego_testing (ID: e77b7a92-7724-44a7-be9c-e6c768abdc45)
+2025-07-11 16:00:14,229 [INFO] \u2705 Done: ego_testing (ID: e77b7a92-7724-44a7-be9c-e6c768abdc45)
+2025-07-11 16:02:51,356 [INFO] Worker started and listening for tasks...
+2025-07-11 16:02:58,992 [INFO] Submitted task a85fecc1-f315-460b-a8e8-b9d6dcee13c8 - failed_testing
+2025-07-11 16:02:58,993 [INFO] \U0001f4e5 Pulled task failed_testing (ID: a85fecc1-f315-460b-a8e8-b9d6dcee13c8) from queue
+2025-07-11 16:02:58,995 [INFO] \U0001f680 Processing task failed_testing (ID: a85fecc1-f315-460b-a8e8-b9d6dcee13c8)
+2025-07-11 16:02:58,995 [ERROR] \u274c Task a85fecc1-f315-460b-a8e8-b9d6dcee13c8 failed: Simulated task failure for retry testing | Retry: 1
+2025-07-11 16:02:58,998 [INFO] \U0001f501 Requeued task a85fecc1-f315-460b-a8e8-b9d6dcee13c8 (Retry 1)
+2025-07-11 16:02:59,000 [ERROR] \u274c Task a85fecc1-f315-460b-a8e8-b9d6dcee13c8 failed: 'str' object has no attribute 'decode' | Retry: 2
+2025-07-11 16:02:59,001 [WARNING] \U0001f6d1 Task a85fecc1-f315-460b-a8e8-b9d6dcee13c8 exceeded max retries. Marked as failed.
+2025-07-11 16:07:50,098 [INFO] Worker started and listening for tasks...
+2025-07-11 16:08:08,063 [INFO] Submitted task 597f875b-be0a-455d-9277-875aa29dc4d2 - destryoed_api
+2025-07-11 16:08:08,064 [INFO] \U0001f4e5 Pulled task destryoed_api (ID: 597f875b-be0a-455d-9277-875aa29dc4d2) from queue
+2025-07-11 16:08:08,066 [INFO] \U0001f680 Processing task destryoed_api (ID: 597f875b-be0a-455d-9277-875aa29dc4d2)
+2025-07-11 16:08:08,066 [ERROR] \u274c Task 597f875b-be0a-455d-9277-875aa29dc4d2 failed: Simulated task failure for retry testing | Retry: 1
+2025-07-11 16:08:08,068 [INFO] \U0001f501 Requeued task 597f875b-be0a-455d-9277-875aa29dc4d2 (Retry 1)
+2025-07-11 16:08:08,070 [INFO] \U0001f4e5 Pulled task Unnamed Task (ID: 597f875b-be0a-455d-9277-875aa29dc4d2) from queue
+2025-07-11 16:08:08,072 [INFO] \U0001f680 Processing task Unnamed Task (ID: 597f875b-be0a-455d-9277-875aa29dc4d2)
+2025-07-11 16:08:08,072 [ERROR] \u274c Task 597f875b-be0a-455d-9277-875aa29dc4d2 failed: Simulated task failure for retry testing | Retry: 2
+2025-07-11 16:08:08,073 [WARNING] \U0001f6d1 Task 597f875b-be0a-455d-9277-875aa29dc4d2 exceeded max retries. Marked as failed.
+2025-07-11 16:09:12,794 [INFO] Worker started and listening for tasks...
+2025-07-11 16:09:24,866 [INFO] Submitted task 7a55b8ea-7a62-4284-bcab-2855f802c658 - scatteredd_api
+2025-07-11 16:09:24,867 [INFO] \U0001f4e5 Pulled task scatteredd_api (ID: 7a55b8ea-7a62-4284-bcab-2855f802c658) from queue
+2025-07-11 16:09:24,868 [INFO] \U0001f680 Processing task scatteredd_api (ID: 7a55b8ea-7a62-4284-bcab-2855f802c658)
+2025-07-11 16:09:24,868 [ERROR] \u274c Task 7a55b8ea-7a62-4284-bcab-2855f802c658 failed: Simulated task failure for retry testing | Retry: 1
+2025-07-11 16:09:24,871 [INFO] \U0001f501 Requeued task 7a55b8ea-7a62-4284-bcab-2855f802c658 (Retry 1)
+2025-07-11 16:09:24,873 [INFO] \U0001f4e5 Pulled task Unnamed Task (ID: 7a55b8ea-7a62-4284-bcab-2855f802c658) from queue
+2025-07-11 16:09:24,874 [INFO] \U0001f680 Processing task Unnamed Task (ID: 7a55b8ea-7a62-4284-bcab-2855f802c658)
+2025-07-11 16:09:24,874 [ERROR] \u274c Task 7a55b8ea-7a62-4284-bcab-2855f802c658 failed: Simulated task failure for retry testing | Retry: 2
+2025-07-11 16:09:24,877 [INFO] \U0001f501 Requeued task 7a55b8ea-7a62-4284-bcab-2855f802c658 (Retry 2)
+2025-07-11 16:09:24,879 [INFO] \U0001f4e5 Pulled task Unnamed Task (ID: 7a55b8ea-7a62-4284-bcab-2855f802c658) from queue
+2025-07-11 16:09:24,881 [INFO] \U0001f680 Processing task Unnamed Task (ID: 7a55b8ea-7a62-4284-bcab-2855f802c658)
+2025-07-11 16:09:24,881 [ERROR] \u274c Task 7a55b8ea-7a62-4284-bcab-2855f802c658 failed: Simulated task failure for retry testing | Retry: 3
+2025-07-11 16:09:24,882 [WARNING] \U0001f6d1 Task 7a55b8ea-7a62-4284-bcab-2855f802c658 exceeded max retries. Marked as failed.
+2025-07-11 16:14:59,465 [INFO] Worker started and listening for tasks...
+2025-07-11 16:15:12,742 [INFO] Submitted task 2b6e8e6a-b541-40ae-bb37-7a6017685e8e - phasmpohobia_api
+2025-07-11 16:15:12,743 [INFO] \U0001f4e5 Pulled task phasmpohobia_api (ID: 2b6e8e6a-b541-40ae-bb37-7a6017685e8e) from queue
+2025-07-11 16:15:12,745 [INFO] \U0001f680 Processing task phasmpohobia_api (ID: 2b6e8e6a-b541-40ae-bb37-7a6017685e8e)
+2025-07-11 16:15:12,745 [ERROR] \u274c Task 2b6e8e6a-b541-40ae-bb37-7a6017685e8e failed: Simulated task failure for retry testing | Retry: 1
+2025-07-11 16:15:12,747 [INFO] \U0001f501 Requeued task 2b6e8e6a-b541-40ae-bb37-7a6017685e8e (Retry 1)
+2025-07-11 16:15:12,750 [INFO] \U0001f4e5 Pulled task phasmpohobia_api (ID: 2b6e8e6a-b541-40ae-bb37-7a6017685e8e) from queue
+2025-07-11 16:15:12,751 [INFO] \U0001f680 Processing task phasmpohobia_api (ID: 2b6e8e6a-b541-40ae-bb37-7a6017685e8e)
+2025-07-11 16:15:12,752 [ERROR] \u274c Task 2b6e8e6a-b541-40ae-bb37-7a6017685e8e failed: Simulated task failure for retry testing | Retry: 2
+2025-07-11 16:15:12,754 [INFO] \U0001f501 Requeued task 2b6e8e6a-b541-40ae-bb37-7a6017685e8e (Retry 2)
+2025-07-11 16:15:12,756 [INFO] \U0001f4e5 Pulled task phasmpohobia_api (ID: 2b6e8e6a-b541-40ae-bb37-7a6017685e8e) from queue
+2025-07-11 16:15:12,757 [INFO] \U0001f680 Processing task phasmpohobia_api (ID: 2b6e8e6a-b541-40ae-bb37-7a6017685e8e)
+2025-07-11 16:15:12,757 [ERROR] \u274c Task 2b6e8e6a-b541-40ae-bb37-7a6017685e8e failed: Simulated task failure for retry testing | Retry: 3
+2025-07-11 16:15:12,760 [INFO] \U0001f501 Requeued task 2b6e8e6a-b541-40ae-bb37-7a6017685e8e (Retry 3)
+2025-07-11 16:15:12,762 [INFO] \U0001f4e5 Pulled task phasmpohobia_api (ID: 2b6e8e6a-b541-40ae-bb37-7a6017685e8e) from queue
+2025-07-11 16:15:12,763 [INFO] \U0001f680 Processing task phasmpohobia_api (ID: 2b6e8e6a-b541-40ae-bb37-7a6017685e8e)
+2025-07-11 16:15:12,763 [ERROR] \u274c Task 2b6e8e6a-b541-40ae-bb37-7a6017685e8e failed: Simulated task failure for retry testing | Retry: 4
+2025-07-11 16:15:12,765 [WARNING] \U0001f6d1 Task 2b6e8e6a-b541-40ae-bb37-7a6017685e8e exceeded max retries. Marked as failed.
+2025-07-11 16:16:42,096 [INFO] Worker started and listening for tasks...
+2025-07-11 16:17:01,184 [INFO] Submitted task 8b459796-8d73-4017-bde6-b5e7ba4912e9 - failingapitasks_api
+2025-07-11 16:17:01,185 [INFO] \U0001f4e5 Pulled task failingapitasks_api (ID: 8b459796-8d73-4017-bde6-b5e7ba4912e9) from queue
+2025-07-11 16:17:01,187 [INFO] \U0001f680 Processing task failingapitasks_api (ID: 8b459796-8d73-4017-bde6-b5e7ba4912e9)
+2025-07-11 16:17:01,187 [ERROR] \u274c Task 8b459796-8d73-4017-bde6-b5e7ba4912e9 failed: Simulated task failure for retry testing | Retry: 1
+2025-07-11 16:17:01,189 [INFO] \U0001f501 Requeued task 8b459796-8d73-4017-bde6-b5e7ba4912e9 (Retry 1)
+2025-07-11 16:17:01,192 [INFO] \U0001f4e5 Pulled task failingapitasks_api (ID: 8b459796-8d73-4017-bde6-b5e7ba4912e9) from queue
+2025-07-11 16:17:01,193 [INFO] \U0001f680 Processing task failingapitasks_api (ID: 8b459796-8d73-4017-bde6-b5e7ba4912e9)
+2025-07-11 16:17:01,193 [ERROR] \u274c Task 8b459796-8d73-4017-bde6-b5e7ba4912e9 failed: Simulated task failure for retry testing | Retry: 2
+2025-07-11 16:17:01,196 [INFO] \U0001f501 Requeued task 8b459796-8d73-4017-bde6-b5e7ba4912e9 (Retry 2)
+2025-07-11 16:17:01,198 [INFO] \U0001f4e5 Pulled task failingapitasks_api (ID: 8b459796-8d73-4017-bde6-b5e7ba4912e9) from queue
+2025-07-11 16:17:01,199 [INFO] \U0001f680 Processing task failingapitasks_api (ID: 8b459796-8d73-4017-bde6-b5e7ba4912e9)
+2025-07-11 16:17:01,199 [ERROR] \u274c Task 8b459796-8d73-4017-bde6-b5e7ba4912e9 failed: Simulated task failure for retry testing | Retry: 3
+2025-07-11 16:17:01,201 [WARNING] \U0001f6d1 Task 8b459796-8d73-4017-bde6-b5e7ba4912e9 exceeded max retries. Marked as failed.
+2025-07-11 16:18:10,399 [INFO] Worker started and listening for tasks...
+2025-07-11 16:18:23,767 [INFO] Submitted task fcee3c6b-89fa-4e99-bb38-3b49762a563a - working_apili_api
+2025-07-11 16:18:23,768 [INFO] \U0001f4e5 Pulled task working_apili_api (ID: fcee3c6b-89fa-4e99-bb38-3b49762a563a) from queue
+2025-07-11 16:18:23,770 [INFO] \U0001f680 Processing task working_apili_api (ID: fcee3c6b-89fa-4e99-bb38-3b49762a563a)
+2025-07-11 16:18:28,771 [INFO] \u2705 Done: working_apili_api (ID: fcee3c6b-89fa-4e99-bb38-3b49762a563a)
+2025-07-11 16:18:52,643 [INFO] Submitted task 39ca2511-2455-49da-8b9c-4eaf349714f2 - apili_api
+2025-07-11 16:18:52,644 [INFO] \U0001f4e5 Pulled task apili_api (ID: 39ca2511-2455-49da-8b9c-4eaf349714f2) from queue
+2025-07-11 16:18:52,646 [INFO] \U0001f680 Processing task apili_api (ID: 39ca2511-2455-49da-8b9c-4eaf349714f2)
+2025-07-11 16:18:57,648 [INFO] \u2705 Done: apili_api (ID: 39ca2511-2455-49da-8b9c-4eaf349714f2)

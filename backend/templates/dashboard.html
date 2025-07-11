@@ -39,10 +39,11 @@
             <th>Task Name</th>
             <th>Data</th>
             <th>Status</th>
+            <th>Retries</th>
         </tr>
         </thead>
         <tbody id="live-tasks-body">
-            <tr><td colspan="4">🔄 Loading live tasks...</td></tr>
+            <tr><td colspan="5">🔄 Loading live tasks...</td></tr>
         </tbody>
     </table>
 </div>
@@ -98,7 +99,7 @@ async function loadLiveTasks() {
 
         tbody.innerHTML = '';
         if (tasks.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="4">No active tasks</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="5">No active tasks</td></tr>';
             return;
         }
 
@@ -109,6 +110,7 @@ async function loadLiveTasks() {
                 <td>${task.task_name || 'Unnamed Task'}</td>
                 <td><pre>${JSON.stringify(task.data || {}, null, 2)}</pre></td>
                 <td class="status-${task.status}">${task.status}</td>
+                 <td>${task.retries || 0}</td>
             `;
             tbody.appendChild(row);
         });

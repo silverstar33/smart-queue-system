@@ -1,9 +1,11 @@
-import redis
 
-redis_client = redis.Redis(host="localhost", port=6379, db=0)
+import requests
+import uuid
+import random
 
-for key in redis_client.scan_iter("task:*"):
-    data = redis_client.hgetall(key)
-    print(f"\nKey: {key}")
-    for k, v in data.items():
-        print(f"  {k.decode()}: {v.decode()}")
+names = ["EmailReport", "CleanDB", "ResizeImages", "NotifyAdmin", "BackupData"]
+for _ in range(5):
+    requests.post("http://localhost:8000/submit", json={
+        "task_name": random.choice(names),
+        "data": {"ref": str(uuid.uuid4())}
+    })

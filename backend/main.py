@@ -4,6 +4,8 @@ from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
 import uuid
 import json
+from backend.logger import logger
+
 
 from backend.redis_queue import enqueue_task, redis_client
 
@@ -21,6 +23,7 @@ class TaskRequest(BaseModel):
 def submit_task(request: TaskRequest):
     task_id = str(uuid.uuid4())
     enqueue_task(task_id, request.data, request.task_name)
+    logger.info(f"Submitted task {task_id} - {request.task_name}")
     return {"task_id": task_id}
 
 
@@ -39,7 +42,8 @@ def admin_dashboard(request: Request):
                 "task_name": task.get("task_name", "Unnamed Task"),
                 "data": task.get("data", "{}"),
                 "status": task.get("status", "unknown"),
-                "result": task.get("result", "")
+                "result": task.get("result", ""),
+                "retries": int(task.get("retries", "0"))
             })
 
         except Exception as e:
@@ -83,7 +87,8 @@ def list_tasks():
                 "task_id": task.get("task_id", key_str),
                 "task_name": task.get("task_name", "Unnamed Task"),
                 "status": task.get("status", "unknown"),
-                "data": data
+                "data": data,
+                "retries": int(task.get("retries", "0"))
             })
 
         except Exception as e:
