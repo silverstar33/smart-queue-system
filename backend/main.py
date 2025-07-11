@@ -2,7 +2,10 @@ from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
+from fastapi.responses import PlainTextResponse
+
 import uuid
+import os
 import json
 from backend.logger import logger
 
@@ -130,3 +133,13 @@ def get_completed_tasks():
 
     return JSONResponse({"tasks": tasks})
 
+
+@app.get("/logs", response_class=PlainTextResponse)
+def get_logs():
+    log_path = os.path.abspath(os.path.join("logs", "task_queue.log"))
+    try:
+        with open(log_path, "r") as log_file:
+            lines = log_file.readlines()
+            return ''.join(lines[-50:])  # Return the last 50 lines
+    except Exception as e:
+        return f"❌ Error reading log: {str(e)}"
