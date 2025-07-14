@@ -19,6 +19,7 @@ A task queue system built with **FastAPI**, **Redis**, and a simple **HTML dashb
 
 ## 🗂️ Project Structure
 
+```
 .
 ├── main.py               # FastAPI server with API routes
 ├── redis_queue.py        # Task enqueue logic
