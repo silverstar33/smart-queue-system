@@ -19,7 +19,18 @@ A task queue system built with **FastAPI**, **Redis**, and a simple **HTML dashb
 
 ## 🗂️ Project Structure
 
-<pre> ├── main.py # FastAPI server with API routes ├── redis_queue.py # Task enqueue logic ├── worker.py # Background task processor ├── logger.py # Centralized logger setup ├── templates/ # HTML dashboard (Admin UI) ├── logs/ │ └── task_queue.log # Log file (auto-created) ├── requirements.txt # Python dependencies ├── Dockerfile ├── docker-compose.yml # Multi-container setup </pre>
+.
+├── main.py               # FastAPI server with API routes
+├── redis_queue.py        # Task enqueue logic
+├── worker.py             # Background task processor
+├── logger.py             # Centralized logger setup
+├── templates/            # HTML dashboard (Admin UI)
+├── logs/
+│   └── task_queue.log    # Log file (auto-created)
+├── requirements.txt      # Python dependencies
+├── Dockerfile
+├── docker-compose.yml    # Multi-container Docker setup
+
 ---
 
 ## 🚀 Run Locally
