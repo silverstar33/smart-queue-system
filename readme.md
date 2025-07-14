@@ -1,102 +1,105 @@
 # 🧠 Smart Queue System
 
-A task queue system built with FastAPI, Redis, and a simple HTML dashboard for monitoring live tasks, errors, retries, and logs.
+A task queue system built with **FastAPI**, **Redis**, and a simple **HTML dashboard** to monitor live tasks, handle failures, view logs, and test real-world DevOps architecture.
+
+---
 
 ## 🔧 Features
 
-- ✅ Enqueue tasks via FastAPI
-- 👷 Background worker processes tasks with retry logic
-- ❌ Automatically handles task failures and retries
-- 📊 Admin dashboard shows:
-  - Live tasks
-  - Completed tasks
-  - Failed tasks
-  - 🔍 **Viewable task logs directly from UI**
-- 📝 Logs saved to `logs/task_queue.log`
+- ✅ Submit tasks via FastAPI
+- 👷 Process background tasks with retry logic
+- ❌ Auto-handles task failures and retries
+- 📊 Admin dashboard displays:
+  - Live and completed tasks
+  - Failed tasks with error info
+  - 🔍 **Task logs viewable directly from the UI**
+- 📝 All logs are saved to `logs/task_queue.log`
+
+---
 
 ## 🗂️ Project Structure
 
-
-├── main.py # FastAPI server with all routes
+├── main.py # FastAPI server with API routes
 ├── redis_queue.py # Task enqueue logic
 ├── worker.py # Background task processor
-├── logger.py # Centralized logging setup
-├── templates/ # HTML dashboard ( Admin UI)
+├── logger.py # Centralized logger setup
+├── templates/ # HTML dashboard (Admin UI)
 ├── logs/
-│   └── task_queue.log # Log file (auto-created)
-├── requirements.txt
+│ └── task_queue.log # Log file (auto-created)
+├── requirements.txt # Python dependencies
 ├── Dockerfile
+├── docker-compose.yml # Multi-container setup
+
+
+---
 
 ## 🚀 Run Locally
 
-Make sure Redis is running on `localhost:6379`.
+Make sure **Redis** is running on `localhost:6379`.
 
-# Build the Docker image
+### 🔨 Build & Run Manually
+
+```bash
+# Step 1: Build Docker image
 docker build -t smart-queue .
 
-# Run the container
+# Step 2: Run the container
 docker run -p 8000:8000 smart-queue
 
-Then visit: http://localhost:8000
+Visit the app at: http://localhost:8000
 
-📥 Submit Task Example
+📥 Submit Task Example (API)
+
 curl -X POST http://localhost:8000/submit \
--H "Content-Type: application/json" \
--d '{"task_name": "test_api", "data": {"key": "value"}}'
-------------------------------------------------------
+  -H "Content-Type: application/json" \
+  -d '{"task_name": "test_api", "data": {"key": "value"}}'
 
-visit for Admin UI: http://localhost:8000/admin
+💻 Admin Dashboard
+Accessible at: http://localhost:8000/admin
 
-💻 UI Dashboard
-The admin dashboard includes:
+Includes:
 
-📋 Live task list with status
+📋 Live task list with real-time status
 
 ✅ Completed task results
 
 ❌ Failed task error messages
 
-📁 Task log viewer (reads from logs/task_queue.log on backend)
+📁 Log viewer (reads last 50 lines from task_queue.log)
 
 🧪 API Endpoints
-POST /submit – Submit a new task
-
-GET /admin – Admin dashboard (UI)
-
-GET /tasks – Fetch all non-completed tasks
-
-GET /tasks/completed – Fetch completed tasks
-
-GET /logs – Fetch log file content view last 50 lines of log (Plain Text)
-
-🖥️ Admin Dashboard
-Available at: GET /admin
-
-Features:
-
-📌 Task name, ID, status, retries
-
-✅ See all queued, failed, and completed tasks
-
-📜 View logs directly on the dashboard (uses /logs API)
+Method	Endpoint	Description
+POST	/submit	Submit a new task
+GET	/admin	View the admin dashboard (UI)
+GET	/tasks	Get all pending/processing tasks
+GET	/tasks/completed	Get completed tasks
+GET	/logs	View last 50 lines from log
 
 🔁 Retry Logic
-Max retries: 2
+Max retries per task: 2
 
-Failed tasks are retried automatically
+Failed tasks are automatically retried
 
-Status is updated in Redis (status: failed | completed | processing)
+Redis tracks status:
 
-🐳 Coming Soon (Planned)
-Docker setup for backend
+queued
 
-GitHub Actions CI/CD
+processing
 
-React frontend for dashboard (currently pure HTML)
+completed
 
---------------------------------------------------
-Author 
-~Ashwin Bagul
+failed
 
-Built with ❤️ for real-world DevOps use case demonstration.
+🐳 Coming Soon
+✅ Dockerized backend (multi-service with Redis)
 
+🔄 GitHub Actions CI/CD
+
+⚛️ React frontend for the dashboard
+
+✍️ Author
+~ Ashwin Bagul
+
+Built with ❤️ as a real-world DevOps & distributed task system showcase.
+
+---
