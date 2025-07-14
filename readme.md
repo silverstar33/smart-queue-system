@@ -25,7 +25,8 @@ A task queue system built with **FastAPI**, **Redis**, and a simple **HTML dashb
 ├── redis_queue.py        # Task enqueue logic
 ├── worker.py             # Background task processor
 ├── logger.py             # Centralized logger setup
-├── templates/            # HTML dashboard (Admin UI)
+├── templates/
+    └── dashboard.html    # HTML dashboard (Admin UI)
 ├── logs/
 │   └── task_queue.log    # Log file (auto-created)
 ├── requirements.txt      # Python dependencies
