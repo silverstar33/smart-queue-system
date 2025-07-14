@@ -1,12 +1,16 @@
 import time
 import json
 import redis
+import os
 from logger import logger  
 
 MAX_RETRIES = 2  # Number of retries allowed
 
-# Connect to Redis
-redis_client = redis.Redis(host='localhost', port=6379, db=0)
+
+redis_host = os.getenv("REDIS_HOST", "redis")  # default to 'redis' (Docker service name)
+redis_port = int(os.getenv("REDIS_PORT", "6379"))
+
+redis_client = redis.StrictRedis(host=redis_host, port=redis_port, db=0)
 
 QUEUE_NAME = "task_queue"
 

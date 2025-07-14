@@ -7,13 +7,13 @@ from fastapi.responses import PlainTextResponse
 import uuid
 import os
 import json
-from backend.logger import logger
+from logger import logger
 
 
-from backend.redis_queue import enqueue_task, redis_client
+from redis_queue import enqueue_task, redis_client
 
 app = FastAPI()
-templates = Jinja2Templates(directory="backend/templates")
+templates = Jinja2Templates(directory="templates")
 
 QUEUE_NAME = "task_queue"
 
@@ -133,7 +133,7 @@ def get_completed_tasks():
 
     return JSONResponse({"tasks": tasks})
 
-
+# ---------- Get Logs ----------
 @app.get("/logs", response_class=PlainTextResponse)
 def get_logs():
     log_path = os.path.abspath(os.path.join("logs", "task_queue.log"))

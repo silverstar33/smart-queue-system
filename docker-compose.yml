@@ -14,6 +14,20 @@ services:
       - "8000:8000"
     depends_on:
       - redis
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     volumes:
-      - ./backend/logs:/app/backend/logs  # ensure logs persist
+      - ./backend/logs:/app/backend/logs
+    restart: always
+
+  queue-worker:
+    build: .
+    container_name: queue-worker
+    depends_on:
+      - redis
+    command: python worker.py
+    environment:
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
     restart: always
