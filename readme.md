@@ -31,7 +31,6 @@ A task queue system built with FastAPI, Redis, and a simple HTML dashboard for m
 
 Make sure Redis is running on `localhost:6379`.
 
-```bash
 # Build the Docker image
 docker build -t smart-queue .
 
@@ -45,6 +44,8 @@ curl -X POST http://localhost:8000/submit \
 -H "Content-Type: application/json" \
 -d '{"task_name": "test_api", "data": {"key": "value"}}'
 ------------------------------------------------------
+
+visit for Admin UI: http://localhost:8000/admin
 
 💻 UI Dashboard
 The admin dashboard includes:
