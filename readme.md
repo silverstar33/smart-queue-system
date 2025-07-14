@@ -30,7 +30,6 @@ A task queue system built with **FastAPI**, **Redis**, and a simple **HTML dashb
 ├── Dockerfile
 ├── docker-compose.yml # Multi-container setup
 
-
 ---
 
 ## 🚀 Run Locally
