@@ -1,0 +1,17 @@
+2025-07-18 17:32:46,420 [INFO] Worker started and listening for tasks...
+2025-07-18 17:33:43,037 [INFO] Submitted task f5c0b8c1-feef-4cb4-93a8-ad03c8cc7954 - Test_Websocket
+2025-07-18 17:33:43,038 [INFO] \U0001f4e5 Pulled task Test_Websocket (ID: f5c0b8c1-feef-4cb4-93a8-ad03c8cc7954) from queue
+2025-07-18 17:33:43,041 [INFO] \U0001f680 Processing task Test_Websocket (ID: f5c0b8c1-feef-4cb4-93a8-ad03c8cc7954)
+2025-07-18 17:33:48,044 [INFO] \u2705 Done: Test_Websocket (ID: f5c0b8c1-feef-4cb4-93a8-ad03c8cc7954)
+2025-07-18 17:34:02,865 [INFO] Submitted task 1449ce08-4df2-4ab8-bbe9-e80067dc835a - Test_Websocket1
+2025-07-18 17:34:02,866 [INFO] \U0001f4e5 Pulled task Test_Websocket1 (ID: 1449ce08-4df2-4ab8-bbe9-e80067dc835a) from queue
+2025-07-18 17:34:02,869 [INFO] \U0001f680 Processing task Test_Websocket1 (ID: 1449ce08-4df2-4ab8-bbe9-e80067dc835a)
+2025-07-18 17:34:07,872 [INFO] \u2705 Done: Test_Websocket1 (ID: 1449ce08-4df2-4ab8-bbe9-e80067dc835a)
+2025-07-18 18:18:17,253 [INFO] Submitted task 3748baba-5b07-4e1b-b295-93dca92fa012 - Test_websockets33
+2025-07-18 18:18:17,255 [INFO] \U0001f4e5 Pulled task Test_websockets33 (ID: 3748baba-5b07-4e1b-b295-93dca92fa012) from queue
+2025-07-18 18:18:17,258 [INFO] \U0001f680 Processing task Test_websockets33 (ID: 3748baba-5b07-4e1b-b295-93dca92fa012)
+2025-07-18 18:18:22,260 [INFO] \u2705 Done: Test_websockets33 (ID: 3748baba-5b07-4e1b-b295-93dca92fa012)
+2025-07-18 18:20:23,265 [INFO] Submitted task 4cbbef2d-8125-4e85-8fa2-c1369695525e - Testing_Websockets123
+2025-07-18 18:20:23,266 [INFO] \U0001f4e5 Pulled task Testing_Websockets123 (ID: 4cbbef2d-8125-4e85-8fa2-c1369695525e) from queue
+2025-07-18 18:20:23,268 [INFO] \U0001f680 Processing task Testing_Websockets123 (ID: 4cbbef2d-8125-4e85-8fa2-c1369695525e)
+2025-07-18 18:20:28,271 [INFO] \u2705 Done: Testing_Websockets123 (ID: 4cbbef2d-8125-4e85-8fa2-c1369695525e)

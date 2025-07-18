@@ -2,7 +2,11 @@ import time
 import json
 import redis
 import os
-from logger import logger  
+import asyncio
+from notifier import broadcast_update
+from logger import logger
+
+
 
 MAX_RETRIES = 2  # Number of retries allowed
 
@@ -14,8 +18,17 @@ redis_client = redis.StrictRedis(host=redis_host, port=redis_port, db=0)
 
 QUEUE_NAME = "task_queue"
 
+async def notify_status(task_id, status):
+    await broadcast_update({
+        "event": "task_update",
+        "task_id": task_id,
+        "status": status
+    })
+
 def process_task(task_id, task_name, task_data): 
     redis_client.hset(f"task:{task_id}", "status", "processing")
+    asyncio.run(notify_status(task_id, "processing"))
+    
     print(f"🚀 Processing task {task_name} (ID: {task_id})")
     logger.info(f"🚀 Processing task {task_name} (ID: {task_id})")  
     
@@ -34,6 +47,8 @@ def process_task(task_id, task_name, task_data):
         "status": "completed",
         "result": result
     })
+
+    asyncio.run(notify_status(task_id, "completed"))
 
     logger.info(f"✅ Done: {task_name} (ID: {task_id})")
     print(f"✅ Done: {task_name} (ID: {task_id})")
@@ -83,6 +98,10 @@ def worker_loop():
                     "task_name": task_name,  # ensure name is preserved
                     "data": json.dumps(task_data)  # ensure data is preserved
                 })
+                    
+                    # ✅ WebSocket notify
+                    status = "failed" if retries >= MAX_RETRIES else "retrying"
+                    asyncio.run(notify_status(task_id, status))
 
                     if retries < MAX_RETRIES:
                         # Requeue task for retry

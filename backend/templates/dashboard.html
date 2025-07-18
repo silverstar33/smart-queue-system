@@ -60,6 +60,34 @@
 </div>
 <script>
 
+const ws = new WebSocket("ws://" + window.location.host + "/ws/tasks");
+
+  ws.onmessage = function(event) {
+    const data = JSON.parse(event.data);
+
+    if (data.event === "task_update") {
+      const taskId = data.task_id;
+      const status = data.status;
+
+      const statusCell = document.querySelector(`#status-${taskId}`);
+      if (statusCell) {
+        statusCell.textContent = status;
+
+        // Optional: Color-code status
+        statusCell.style.color = (
+          status === "completed" ? "green" :
+          status === "processing" ? "orange" :
+          status === "retrying" ? "blue" :
+          status === "failed" ? "red" : "black"
+        );
+      }
+    }
+  };
+
+  ws.onclose = function() {
+    console.warn("WebSocket closed. Attempting to reconnect in 5 seconds...");
+    setTimeout(() => location.reload(), 5000);
+  };
 async function loadLogs() {
     try {
         const response = await fetch('/logs');
@@ -79,11 +107,17 @@ setInterval(() => {
 }, 5000);
 
 function switchTab(tabName) {
+    // Save to localStorage
+    localStorage.setItem('activeTab', tabName);
     document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
     document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+
     document.querySelector(`.tab-button[onclick*='${tabName}']`).classList.add('active');
     document.getElementById(tabName).classList.add('active');
 }
+// Restore tab from localStorage
+    const savedTab = localStorage.getItem('activeTab') || 'live';
+    switchTab(savedTab);
 
 async function loadCompletedTasks() {
     try {
@@ -131,7 +165,7 @@ async function loadLiveTasks() {
                 <td>${task.task_id}</td>
                 <td>${task.task_name || 'Unnamed Task'}</td>
                 <td><pre>${JSON.stringify(task.data || {}, null, 2)}</pre></td>
-                <td class="status-${task.status}">${task.status}</td>
+                <td id="status-${task.task_id}" class="status-${task.status}">${task.status}</td>
                  <td>${task.retries || 0}</td>
             `;
             tbody.appendChild(row);
@@ -140,6 +174,7 @@ async function loadLiveTasks() {
         console.error("Failed to load live tasks", err);
     }
 }
+
 
 loadCompletedTasks();
 loadLiveTasks();

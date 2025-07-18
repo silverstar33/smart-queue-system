@@ -3,6 +3,8 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel
 from fastapi.responses import PlainTextResponse
+from fastapi import WebSocket, WebSocketDisconnect
+from notifier import register_client, remove_client
 
 import uuid
 import os
@@ -143,3 +145,13 @@ def get_logs():
             return ''.join(lines[-50:])  # Return the last 50 lines
     except Exception as e:
         return f"❌ Error reading log: {str(e)}"
+    
+ # ---------- Websocket Connection Route ----------
+@app.websocket("/ws/tasks")
+async def websocket_endpoint(websocket: WebSocket):
+    await register_client(websocket)
+    try:
+        while True:
+            await websocket.receive_text()
+    except WebSocketDisconnect:
+        remove_client(websocket)
