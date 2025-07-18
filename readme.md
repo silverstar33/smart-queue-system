@@ -64,6 +64,9 @@ Includes:
 
 📋 Live task list with real-time status
 
+- Uses WebSocket (`/ws/tasks`) to show live task status updates instantly
+- Built with FastAPI + Uvicorn + Vanilla JS
+
 ✅ Completed task results
 
 ❌ Failed task error messages
